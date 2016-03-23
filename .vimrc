@@ -44,7 +44,7 @@ set shiftround
 " 補完の際の大文字小文字の区別しない
 set infercase
 " 文字がない場所にもカーソルを移動できるようにする
-set virtualedit=all
+" set virtualedit=all
 " 変更中のファイルでも、保存しないで他のファイルを表示
 set hidden
 " 新しく開く代わりにすでに開いてあるバッファを開く
@@ -58,9 +58,9 @@ set incsearch
 " 検索結果をハイライト表示
 :set hlsearch
 " タブ文字幅
-set tabstop=4
+set tabstop=2
 " 自動インデントの幅
-set shiftwidth=4
+set shiftwidth=2
 " タブ入力を複数の空白入力に置き換え
 set expandtab
 " 行頭の余白内で Tab を打ち込むとshiftwidthの数だけインデントする
@@ -105,7 +105,7 @@ set clipboard=unnamed,unnamedplus,autoselect
 " ESCキーが押されてからの待ち時間
 set timeoutlen=300
 " マウス対応
-set mouse=a
-set ttymouse=xterm2
+" set mouse=a
+" set ttymouse=xterm2
 " " コマンドを画面最下部に表示する
 set showcmd
