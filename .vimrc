@@ -70,7 +70,7 @@ set smartindent
 " カラー設定
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme molokai 
 let g:solarized_termcolors=256
 set listchars=eol:¬,tab:▸\
 " 行番号表示
