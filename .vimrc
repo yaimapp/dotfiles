@@ -109,3 +109,43 @@ set timeoutlen=300
 " set ttymouse=xterm2
 " " コマンドを画面最下部に表示する
 set showcmd
+
+"save code, run python, ruby, php show output in preview window
+function! Script_eval_vsplit() range
+  let src = tempname()
+  let dst = tempname()
+  let lang = 'python'
+  let ext = expand("%:e")
+  if ext == 'py'
+    let lang = 'python'
+  elseif ext == 'rb'
+    let lang = 'ruby'
+  elseif ext == 'php'
+    let lang = 'php'
+  endif 
+  execute ": " . a:firstline . "," . a:lastline . "w " . src
+  execute ":silent ! ". lang . " " . src . " > " . dst . " 2>&1 "
+  execute ":pclose!"
+  execute ":redraw!"
+  execute ":vsplit"
+  execute "normal \<C-W>l"
+  execute ":e! " . dst
+  execute ":set pvw"
+  execute "normal \<C-W>h"
+endfunction
+vmap <silent> <F7> :call Script_eval_vsplit()<CR>
+nmap <silent> <F7> mzggVG<F7>`z
+imap <silent> <F7> <Esc><F7>a
+map <silent> <S-F7> <C-W>l:bw<CR>
+imap <silent> <S-F7> <Esc><S-F7>a
+"括弧とクォートの自動補完
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi^V{<C-R>z}<ESC>
+vnoremap [ "zdi^V[<C-R>z]<ESC>
+vnoremap ( "zdi^V(<C-R>z)<ESC>
+vnoremap " "zdi^V"<C-R>z^V"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
