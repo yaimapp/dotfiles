@@ -1,0 +1,4 @@
+new-window -n editor
+new-window -n server
+
+select-window -t 1
