@@ -1,72 +1,41 @@
-let s:use_dein = 1
+if 0 | endif
 
-" vi compatibility
-if !&compatible
-  set nocompatible
-endif
+filetype off
 
-" Prepare .vim dir
-let s:vimdir = $HOME . "/.vim"
-if has("vim_starting")
-  if ! isdirectory(s:vimdir)
-    call system("mkdir" . s:vimdir)
-  endif
-endif
-
-" dein
-let s:dein_enabled = 0
-if s:use_dein && v:version >= 704
-  let s:dein_enabled = 1
-
-  " Set dein paths
-  let s:dein_dir = s:vimdir . '/dein'
-  let s:dein_github = s:dein_dir . '/repos/github.com'
-  let s:dein_repo_name = "Shougo/dein.vim"
-  let s:dein_repo_dir = s:dein_github . '/' . s:dein_repo_name
-
-  " Check dein has been installed or not
-  if !isdirectory(s:dein_repo_dir)
-    echo "dein is not installed, install now "
-    let s:dein_repo = "https://github.com/" . s:dein_repo_name
-    echo "git clone " . s:dein_repo . " " . s:dein_repo_dir
-    call system("git clone " . s:dein_repo . " " . s:dein_repo_dir)
-  endif
-  let &runtimepath = &runtimepath . "," . s:dein_repo_dir
-
-  " Begin plugin part
-  call dein#begin(s:dein_dir)
-
-  " Check cache
-  if dein#load_cache()
-
-    call dein#add('Shougo/dein.vim')
-
-    " Completion {{{
-    if has('lua')
-      call dein#add('Shougo/neocomplete.vim', {
-        \ 'on_i': 1,
-        \ 'lazy': 1})
-      call dein#add('ujihisa/neco-look', {
-        \ 'dpends': ['neocomplete.vim']})
-    endif
-    " }}}
-
-    call dein#save_cache()
+if has('vim_starting')
+  if &compatible
+    set nocompatible
   endif
 
-  call dein#end()
-
-  " Installaction check.
-  if dein#check_install()
-    call dein#install()
-  endif
+  set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
-if s:dein_enabled && dein#tap("unite.vim")
-  nnoremap [unite] <Nop>
-  nmap <Leader>u [unite]
-  nnoremap <silent> [unite]b :Unite buffer<CR>
-endif
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix': 'make -f make_unix.mak',
+  \ },
+  \ }
+NeoBundle 'VimClojure'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+
+call neobundle#end()
+
+filetype plugin indent on
+filetype indent on
+syntax on
+
+NeoBundleCheck
 
 " 構文チェック
 syntax enable
