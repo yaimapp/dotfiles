@@ -1,41 +1,41 @@
-if 0 | endif
+"if 0 | endif
 
-filetype off
+"filetype off
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
+"if has('vim_starting')
+"  if &compatible
+"    set nocompatible
+"  endif
 
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-endif
+"  set runtimepath+=~/.vim/bundle/neobundle.vim
+"endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+"call neobundle#begin(expand('~/.vim/bundle/'))
 
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix': 'make -f make_unix.mak',
-  \ },
-  \ }
-NeoBundle 'VimClojure'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
+"NeoBundle 'Shougo/neobundle.vim'
+"NeoBundle 'Shougo/vimproc', {
+"  \ 'build' : {
+"    \ 'windows' : 'make -f make_mingw32.mak',
+"    \ 'cygwin' : 'make -f make_cygwin.mak',
+"    \ 'mac' : 'make -f make_mac.mak',
+"    \ 'unix': 'make -f make_unix.mak',
+"  \ },
+"  \ }
+"NeoBundle 'VimClojure'
+"NeoBundle 'Shougo/vimshell'
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/neosnippet.vim'
+"NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'tpope/vim-fugitive'
+"NeoBundle 'ctrlpvim/ctrlp.vim'
 
-call neobundle#end()
+"call neobundle#end()
 
-filetype plugin indent on
-filetype indent on
-syntax on
+"filetype plugin indent on
+"filetype indent on
+"syntax on
 
-NeoBundleCheck
+"NeoBundleCheck
 
 " 構文チェック
 syntax enable
