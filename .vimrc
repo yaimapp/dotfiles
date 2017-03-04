@@ -1,19 +1,3 @@
-if has('vim_starting')
-  set rtp+=~/.vim/plugged/vim-plug
-  if !isdirectory(expand('~/.vim/plugged/vim-plug'))
-    echo 'install vim-plug...'
-    call system('mkdir -p ~/.vim/plugged/vim-plug')
-    call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
-  end
-endif
-
-call plug#begin('~/.vim/plugged')
-Plug 'scrooloos/nerdtree'
-Plug 'jistr/vim-nerdteree-tabs'
-Plug 'KeitaNakamura/railscasts.vi'
-Plug 'kchmck/vim-coffee-script'
-call plug#end()
-
 syntax on
 " 構文チェック
 syntax enable
@@ -87,8 +71,9 @@ set smartindent
 " カラー設定
 set t_Co=256
 set background=dark
-colorscheme hybrid 
+colorscheme solarized
 let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 set listchars=eol:¬,tab:▸\
 " 行番号表示
 set number
