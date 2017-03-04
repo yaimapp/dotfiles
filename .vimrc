@@ -10,6 +10,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloos/nerdtree'
 Plug 'jistr/vim-nerdteree-tabs'
+Plug 'KeitaNakamura/railscasts.vi'
 Plug 'kchmck/vim-coffee-script'
 call plug#end()
 
