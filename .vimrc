@@ -5,6 +5,7 @@ syntax enable
 set encoding=UTF-8
 set fileencoding=UTF-8
 set termencoding=UTF-8
+
 " スクロールする時に下が見えるようにする
 set scrolloff=5
 " .swapファイルを作らない
@@ -62,12 +63,15 @@ set incsearch
 set tabstop=2
 " 自動インデントの幅
 set shiftwidth=2
+set softtabstop=0
 " タブ入力を複数の空白入力に置き換え
 set expandtab
 " 行頭の余白内で Tab を打ち込むとshiftwidthの数だけインデントする
 set smarttab
 " autoindentと同様だがC構文を認識
 set smartindent
+
+
 " カラー設定
 set t_Co=256
 set background=dark
