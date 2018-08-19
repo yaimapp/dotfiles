@@ -1,0 +1,3 @@
+cd ~/.vim/bundle
+git clone https://github.com/kchmck/vim-coffee-script.git ~/.vim/bundle/vim-coffee-script/
+
