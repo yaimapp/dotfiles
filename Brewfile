@@ -1,0 +1,10 @@
+cask_args appdir: "/Applications"
+brew "git"
+brew "openssl"
+brew "pyenv"
+brew "rbenv"
+brew "tmux"
+brew "wget"
+cask "docker"
+cask "karabiner-elements"
+
